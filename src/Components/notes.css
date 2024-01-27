@@ -1,0 +1,21 @@
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.broad{
+    width: 40vw;
+    margin-top: 10px;
+}
+.text{
+    font-size: larger;
+    font-weight: 500;
+    width: 40vw;
+
+}
+.class{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    width: 100%;
+}

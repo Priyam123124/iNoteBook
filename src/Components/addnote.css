@@ -1,0 +1,20 @@
+.combined{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.txtar{
+    width: 39vw;
+    height: 36px;
+}
+.button{
+    border: none;
+    background-color: rgb(0, 153, 153);
+    color: black;
+    height: 33px;
+    width: 77px;
+    text-align: center;
+    margin-top: 4px;
+    cursor: pointer;
+}

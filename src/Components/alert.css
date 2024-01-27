@@ -1,0 +1,15 @@
+.alert{
+    width: 100%;
+    background-color:#014d29;
+    height: 31px;
+    position: relative;
+    top: 0px;
+}
+.margin{
+    position: relative;
+    bottom: 0px;
+}
+.space{
+    height: 32px;
+    width: 100%;
+}

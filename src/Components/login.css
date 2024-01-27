@@ -1,0 +1,11 @@
+.centereee{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 50px;
+}
+.font69{
+    font-size: 25px;
+    position: relative;
+    top: 14px;
+}

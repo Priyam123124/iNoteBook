@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.navbar{
+    display: flex;
+    background-color: rgb(247, 228, 193);
+    height: 37px;
+}
+ul{
+    display: flex;
+}
+li{
+    list-style: none;
+    margin-right: 7px;
+    margin-top: 4px;
+    margin-left: 15px;
+    color: rgb(0, 119, 255);
+    font-size: larger;
+}
+.image{
+    height: 99px;
+    width: 97px;
+    margin-top: -33px;
+}
+.link{
+    text-decoration: none;
+}
+.logup{
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+}
+.dock{
+    margin-right: 5px;
+    margin-top: 1px;
+    padding: 0;
+}

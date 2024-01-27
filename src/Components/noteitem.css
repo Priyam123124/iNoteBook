@@ -1,0 +1,28 @@
+.noteitem{
+    margin: 6px;
+    border: 1px solid grey;
+    width: 228px;
+}
+.title{
+    font-size: large;
+}
+.margine{
+    margin: 5px;
+}
+.marginal{
+    margin-right: 12px;
+}
+.popup{
+    position: fixed;
+    z-index: 1;
+    border: 1px solid grey;
+    border-radius: 4px;
+    height: 59vh;
+    width: 53vw;
+    left: 24vw;
+    top: 6.5vh;
+    background-color: azure;
+}
+i{
+    cursor: pointer;
+}

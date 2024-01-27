@@ -1,0 +1,38 @@
+const express = require('express');
+const  User = require('../models/User.js');
+const { body, validationResult } = require('express-validator');
+
+const router = express.Router();
+
+// Creat a user using: POST "/api/auth/createuser". Doesn't require auth
+router.post('/createuser', [
+    //express validator
+    body('name').isLength({min: 3}),
+    body('email').isEmail(),
+    body('password').isLength({min: 5})
+], (req, res)=>{
+  // if there are errors return bad request or errors
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    User.create({
+        name: req.body.name,
+        email: req.body.email,
+        password: req.body.password
+      }).then(user => res.json(user))
+      .catch(err=> {console.log(err)
+    res.json({error: "please enter a unique value for email"})});
+
+    // neeche wala isse pahle ke video ka content hai. jab express validator use nhi hua tha
+    // console.log(req.body);
+    // const user = User(req.body)
+    // user.save();
+    // res.send(req.body); //req.body means request ki body ka data
+})
+
+module.exports = router;
+
+
+for security and hashing algorithm we are using bcryptjs and json web token(jwt)
