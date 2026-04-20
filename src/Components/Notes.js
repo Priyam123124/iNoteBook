@@ -6,7 +6,8 @@ import './notes.css'
 const Notes = () => {
     const context = useContext(notesContext);
     const {notes, fetchNotes} = context;
-  
+    
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => {
       fetchNotes();
     },[]);

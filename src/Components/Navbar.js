@@ -8,6 +8,7 @@ const Navbar = () => {
   const context = useContext(notesContext);
   const { fetchNotes} = context;
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(()=>{
     fetchNotes();
   }, [])
