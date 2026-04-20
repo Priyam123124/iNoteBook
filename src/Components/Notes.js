@@ -16,7 +16,7 @@ const Notes = () => {
   return (
     <>
     <div className='class'><div className='text'>Your Notes</div></div>
-    <div className='container' style={{height: '70vh', overflowY: 'auto'}}>
+    <div className='container' style={{maxHeight: '70vh', overflowY: 'auto'}}>
       {notes.length===0 && <div className='broad'><div>No Notes To display</div></div>}
       {notes && notes.map((note)=>{
       return <NoteItem key={note._id} note={note}/>})}

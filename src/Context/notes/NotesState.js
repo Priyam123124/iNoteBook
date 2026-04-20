@@ -12,7 +12,7 @@ const NotesState = (props) => {
 
   //Fetch Notes
   const tagcolor = [{background: '#E6F4EA', color: '#2F6F4F'}, {background: '#E8F0FE', color: '#3559C7'}, {background: '#FDEDE8', color: '#B4533C'}, {background: '#FCE7F3', color: '#9D174D'}, {background: '#F3E8FF', color: '#6B21A8'}, {background: '#F1F5F9', color: '#475569'}]
-  const fetchNotes = async (url = "http://localhost:5000/api/notes/fetchallnotes") => {
+  const fetchNotes = async (url = "https://i-note-book-lyart.vercel.app/api/notes/fetchallnotes") => {
     const response = await fetch(url, {
       method: "GET", // *GET, POST, PUT, DELETE, etc.
       headers: {
@@ -52,7 +52,7 @@ const NotesState = (props) => {
       "description": des,
       "tag": tag,
     }
-    const addAnote = async (url = "http://localhost:5000/api/notes/addnote", data = note) => {
+    const addAnote = async (url = "https://i-note-book-lyart.vercel.app/api/notes/addnote", data = note) => {
       const response = await fetch(url, {
         method: "POST", // *GET, POST, PUT, DELETE, etc.
         headers: {
@@ -78,7 +78,7 @@ const NotesState = (props) => {
   }
   //Delete a note
   const delNote = async(id) => {
-    const del = async(url = `http://localhost:5000/api/notes/deletenote/${id}`) => {
+    const del = async(url = `https://i-note-book-lyart.vercel.app/api/notes/deletenote/${id}`) => {
       const response = await fetch(url, {
         method: "DELETE",
         headers: {
@@ -108,7 +108,7 @@ const NotesState = (props) => {
       "description": desc,
       "tag": tag
     }
-    const updateNote = async(url=`http://localhost:5000/api/notes/updatenote/${id}`, data=updata)=>{
+    const updateNote = async(url=`https://i-note-book-lyart.vercel.app/api/notes/updatenote/${id}`, data=updata)=>{
       const response = await fetch(url, {
         method: "PUT",
         headers: {

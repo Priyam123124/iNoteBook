@@ -49,10 +49,12 @@ const NoteItem = (props) => {
             </div>
     </div>}
     <div className='noteitem'>
-        <div style={{backgroundColor: note.tagclr.background,color: note.tagclr.color, width: '60px', borderRadius: '5px', display: 'flex', justifyContent: 'center', alignItems: 'center', marginLeft: '5px', marginTop: '5px'}}>{note.tag}</div>
+        <div>
+        <div style={{backgroundColor: note.tagclr.background,color: note.tagclr.color, width: 'fit-content', borderRadius: '5px', display: 'flex', justifyContent: 'center', alignItems: 'center', marginLeft: '5px', margin: '5px', padding: '5px'}}>{note.tag}</div>
         <div className='title margine'>{note.title} </div>
         <div className='desc margine'>{note. description}</div>
-        <div style={{display: 'flex', justifyContent: 'right', width: '100%', paddingBottom: '5px'}}><i className="fa-solid fa-trash marginal" onClick={()=>{delNote(note._id)}}></i><i className="fa-solid fa-pen-to-square marginal" onClick={()=>{view(note._id)}}></i></div>
+        </div>
+        <div style={{display: 'flex', justifyContent: 'flex-end', alignItems: 'flex-end', width: '100%', paddingBottom: '5px'}}><i className="fa-solid fa-trash marginal" onClick={()=>{delNote(note._id)}}></i><i className="fa-solid fa-pen-to-square marginal" onClick={()=>{view(note._id)}}></i></div>
     </div>
     </>
   )
