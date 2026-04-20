@@ -26,8 +26,8 @@ A full-stack notes application that allows users to securely create, manage, and
 
 ## 📸 Screenshots
 
-![Home](../home.png)
-![SignUp](../signup.png)
+![Home](./home.png)
+![SignUp](./signup.png)
 
 ---
 
