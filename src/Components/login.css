@@ -1,11 +1,25 @@
 .centereee{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /*align-items: center; */
     font-size: 50px;
+    /* width: 100%; */
+
+    background: #F8FAFCB3;
+    border-Radius: 10px; 
+    box-Shadow: 0 6px 20px rgba(0,0,0,0.15); 
+    width: 70%; 
+    height: 450px; 
+    padding-Top: 10px
 }
 .font69{
-    font-size: 25px;
-    position: relative;
-    top: 14px;
+    font-size: 20px;
+    margin-top: 10px;   
+    margin-left: 20px;
+}
+.leftContainer{
+    width: 50%;
+}
+.mar{
+    margin-left: 20px;
 }

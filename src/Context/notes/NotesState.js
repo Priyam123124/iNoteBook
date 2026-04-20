@@ -11,7 +11,7 @@ const NotesState = (props) => {
   const initNotes = []
 
   //Fetch Notes
-
+  const tagcolor = [{background: '#E6F4EA', color: '#2F6F4F'}, {background: '#E8F0FE', color: '#3559C7'}, {background: '#FDEDE8', color: '#B4533C'}, {background: '#FCE7F3', color: '#9D174D'}, {background: '#F3E8FF', color: '#6B21A8'}, {background: '#F1F5F9', color: '#475569'}]
   const fetchNotes = async (url = "http://localhost:5000/api/notes/fetchallnotes") => {
     const response = await fetch(url, {
       method: "GET", // *GET, POST, PUT, DELETE, etc.
@@ -27,7 +27,16 @@ const NotesState = (props) => {
       console.log("Unauthorized access");
       return; // Exit the function to prevent further execution
     }
-    const fetched = await response.json();
+    let fetched = await response.json();
+    let cnt = 0;
+    fetched.forEach(element => {
+      element.tagclr = tagcolor[cnt]
+      if(cnt < 4) {
+        cnt++
+      } else {
+        cnt = 0
+      }
+    });
     if(localStorage.getItem("token")!=="Please try to login with correct credential"){
     setNotes(fetched);
     } else {
@@ -41,7 +50,7 @@ const NotesState = (props) => {
     const note = {
       "title": title,
       "description": des,
-      "tag": "tag",
+      "tag": tag,
     }
     const addAnote = async (url = "http://localhost:5000/api/notes/addnote", data = note) => {
       const response = await fetch(url, {

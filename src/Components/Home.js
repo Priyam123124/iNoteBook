@@ -6,8 +6,14 @@ const Home = () => {
   
   return (
     <>
-    <AddNote/>
-    <Notes/>
+    <div style={{display: 'flex', flexDirection: 'row'}}>
+      <div style={{width: '50%', justifyContent: 'center', display: 'flex'}}>
+        <AddNote/>
+      </div>
+      <div style={{width: '50%'}}>
+        <Notes/>
+      </div>
+    </div>
     </>
   )
 }

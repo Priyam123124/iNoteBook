@@ -2,9 +2,11 @@
     margin: 6px;
     border: 1px solid grey;
     width: 228px;
+    background-color: #F8FAFCB3;
+    border-radius: 5px;
 }
 .title{
-    font-size: large;
+    font-weight: 500;
 }
 .margine{
     margin: 5px;

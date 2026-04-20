@@ -7,6 +7,7 @@ const Notes = () => {
     const context = useContext(notesContext);
     const {notes, fetchNotes} = context;
     const [flag, setFlag] = useState(true);
+    const [cnt, setCnt] = useState(0)
   
     useEffect(() => {
       fetchNotes();
@@ -15,7 +16,7 @@ const Notes = () => {
   return (
     <>
     <div className='class'><div className='text'>Your Notes</div></div>
-    <div className='container'>
+    <div className='container' style={{height: '70vh', overflowY: 'auto'}}>
       {notes.length===0 && <div className='broad'><div>No Notes To display</div></div>}
       {notes && notes.map((note)=>{
       return <NoteItem key={note._id} note={note}/>})}
