@@ -51,7 +51,7 @@ const SignUp = () => {
     <>
       <div style={{ display: 'flex', flexDirection: 'row' }}>
         <div className='leftContainer'>
-          <img src='logo.png' style={{width: '80%'}}/>
+          <img src='logo.png' style={{width: '80%'}} alt='iNoteBook'/>
         </div>
         <div style={{width: '50%', justifyContent: 'center', display: 'flex'}}>
         <div className='centereee'>

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import { useContext, useState } from 'react'
 import notesContext from '../Context/notes/notesContext'
 import './addnote.css'
 const AddNote = () => {

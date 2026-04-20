@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react'
+import {useContext, useEffect} from 'react'
 import notesContext from '../Context/notes/notesContext';
 import NoteItem from './NoteItem'
 import './notes.css'
@@ -6,8 +6,6 @@ import './notes.css'
 const Notes = () => {
     const context = useContext(notesContext);
     const {notes, fetchNotes} = context;
-    const [flag, setFlag] = useState(true);
-    const [cnt, setCnt] = useState(0)
   
     useEffect(() => {
       fetchNotes();

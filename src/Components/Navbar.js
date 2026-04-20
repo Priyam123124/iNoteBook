@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from 'react'
+import {useContext, useEffect} from 'react'
 import './navbar.css'
 import {Link, useNavigate} from 'react-router-dom'
 import notesContext from '../Context/notes/notesContext'

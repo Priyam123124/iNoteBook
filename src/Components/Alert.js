@@ -1,4 +1,4 @@
-import React, {useContext} from 'react'
+import {useContext} from 'react'
 import notesContext from '../Context/notes/notesContext'
 import './alert.css'
 
