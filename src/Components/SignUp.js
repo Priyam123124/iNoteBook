@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import notesContext from '../Context/notes/notesContext';
+import loading from './loading.gif'
 
 const SignUp = () => {
   const context = useContext(notesContext);
@@ -12,6 +13,7 @@ const SignUp = () => {
   }
 
   const [width, setWidth] = useState(window.innerWidth);
+  const [loadingg, setLoading] = useState(false)
 
   useEffect(() => {
     const handleResize = () => setWidth(window.innerWidth);
@@ -21,6 +23,7 @@ const SignUp = () => {
   }, []);
 
   const createaccount = async () => {
+    setLoading(loading=> true)
     const response = await fetch("https://i-note-book-lyart.vercel.app/api/auth/createuser", {
       method: "POST",
       headers: {
@@ -28,9 +31,12 @@ const SignUp = () => {
       },
       body: JSON.stringify(bady)
     });
+    setLoading(loading=> false)
     if (response.status !== 400) {
       setFlag(true);
-    } else setFlag(false);
+    } else {
+      setFlag(false);
+    }
     const createacc = await response.json();
     return createacc;
   }
@@ -72,7 +78,7 @@ const SignUp = () => {
               <input type='text' placeholder='Email' name="email" value={bady.email} onChange={onChange} className='txtar mar' />
               <div className='font69'>Password</div>
               <input type='password' placeholder='Password' name="password" value={bady.password} onChange={onChange} className='txtar mar' minLength={5} required />
-              <input type='button' value='Sign Up' onClick={handleclick} className='button mar' />
+              <div style={{display: 'flex', flexDirection: 'row'}}><input type='button' value='Sign Up' onClick={handleclick} className='button mar' />{loadingg && <img src={loading} alt="loading" height={33} style={{marginTop: '20px'}}/>}</div>
             </div>
           </div>
         </div>

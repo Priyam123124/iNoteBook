@@ -3,6 +3,7 @@ import notesContext from '../Context/notes/notesContext';
 import { useNavigate } from 'react-router-dom'
 import './login.css';
 import './addnote.css'
+import loading from './loading.gif'
 const Login = () => {
     const context = useContext(notesContext);
     const { fetchNotes, setAlert, setType, setMessage } = context;
@@ -13,6 +14,7 @@ const Login = () => {
     }
 
     const [width, setWidth] = useState(window.innerWidth);
+    const [loadingg, setLoading] = useState(false)
     
       useEffect(() => {
         const handleResize = () => setWidth(window.innerWidth);
@@ -27,6 +29,7 @@ const Login = () => {
             "email": info.email,
             "password": info.password
         }
+        setLoading(loading=> true)
         const response = await fetch('https://i-note-book-lyart.vercel.app/api/auth/login', {
             method: "POST",
             headers: {
@@ -35,6 +38,7 @@ const Login = () => {
             body: JSON.stringify(dneed)
         });
         const logged = await response.json();
+        setLoading(loading=> false)
         console.log(logged);
         localStorage.setItem("token", (logged.authData))
         return logged;
@@ -78,7 +82,7 @@ const Login = () => {
                             <input type='text' placeholder='Email' value={info.email} name="email" onChange={change} className='txtar mar' />
                             <div className='font69'>Password</div>
                             <input type='password' placeholder='Password' value={info.password} name="password" onChange={change} className='txtar mar' />
-                            <input type='button' value='Log In' onClick={click} className='button mar' />
+                            <div style={{display: 'flex', flexDirection: 'row'}}><input type='button' value='Log In' onClick={click} className='button mar' />{loadingg && <img src={loading} alt="loading" height={33} style={{marginTop: '20px'}}/>}</div>
                         </div>
                     </div>
                 </div>

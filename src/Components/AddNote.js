@@ -1,9 +1,10 @@
 import { useContext, useState } from 'react'
 import notesContext from '../Context/notes/notesContext'
 import './addnote.css'
+import loading from './loading.gif'
 const AddNote = () => {
     const context = useContext(notesContext);
-    const { addNote } = context;
+    const { addNote, loadingg } = context;
     const [note, setNote] = useState({title: "", description: "", tag: ""});
     const change = (e) => {
         setNote({...note, [e.target.name]: e.target.value})
@@ -26,7 +27,7 @@ const AddNote = () => {
                     <div><textarea placeholder='description' name="description" value={note.description} onChange={change} className='txtar' style={{height: '80px'}} /></div>
                     <div className='name'>Tag</div>
                     <div><input type='text' placeholder='tag' name="tag" value={note.tag} onChange={change} className='txtar' /></div>
-                    <input type='button' value='AddNote' onClick={click} className='button'/>
+                    <div style={{display: 'flex', flexDirection: 'row'}}><input type='button' value='AddNote' onClick={click} className='button'/>{loadingg && <img src={loading} alt="loading" height={33} style={{marginTop: '20px'}}/>}</div>
                 </div>
             </div>
         </div>

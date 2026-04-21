@@ -7,6 +7,7 @@ const NotesState = (props) => {
   const [type, setType] = useState("");
   const [message, setMessage] = useState("");
   const [flag, setFlag] = useState(false);
+  const [loadingg, setLoading] = useState(false)
 
   const initNotes = []
 
@@ -52,6 +53,7 @@ const NotesState = (props) => {
       "description": des,
       "tag": tag,
     }
+    setLoading(loadingg=> true)
     const addAnote = async (url = "https://i-note-book-lyart.vercel.app/api/notes/addnote", data = note) => {
       const response = await fetch(url, {
         method: "POST", // *GET, POST, PUT, DELETE, etc.
@@ -61,6 +63,7 @@ const NotesState = (props) => {
         },
         body: JSON.stringify(data), // body data type must match "Content-Type" header
       });
+      setLoading(loadingg=> false)
       if(response.status!==400){
         fetchNotes();
     setAlert(true);
@@ -134,7 +137,7 @@ const NotesState = (props) => {
 
   }
   return (
-    <notesContext.Provider value={{ notes, addNote, delNote, fetchNotes, update,showAlert, setAlert, type, setType, message, setMessage, flag, setFlag }}>
+    <notesContext.Provider value={{ notes, addNote, delNote, fetchNotes, update,showAlert, setAlert, type, setType, message, setMessage, flag, setFlag, loadingg }}>
       {props.children}
     </notesContext.Provider>
   )
