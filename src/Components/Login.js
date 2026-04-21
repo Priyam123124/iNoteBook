@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react'
+import { useContext, useState, useEffect } from 'react'
 import notesContext from '../Context/notes/notesContext';
 import { useNavigate } from 'react-router-dom'
 import './login.css';
@@ -11,6 +11,16 @@ const Login = () => {
     const change = (e) => {
         setInfo({ ...info, [e.target.name]: e.target.value })
     }
+
+    const [width, setWidth] = useState(window.innerWidth);
+    
+      useEffect(() => {
+        const handleResize = () => setWidth(window.innerWidth);
+        window.addEventListener("resize", handleResize);
+    
+        return () => window.removeEventListener("resize", handleResize);
+      }, []);
+    
 
     const logIn = async () => {
         const dneed = {
@@ -56,11 +66,11 @@ const Login = () => {
     }
     return (
         <>
-            <div style={{ display: 'flex', flexDirection: 'row' }}>
-                <div className='leftContainer'>
+            <div style={{ display: 'flex', flexDirection: width > 600 ? 'row' : 'column' }}>
+                {width > 600 && <div className='leftContainer'>
                     <img src='logo.png' style={{ width: '80%' }} alt='iNoteBook'/>
-                </div>
-                <div style={{ width: '50%', justifyContent: 'center', display: 'flex' }}>
+                </div>}
+                <div style={{ width: width > 600 ? '50%' : '100%', justifyContent: 'center', display: 'flex' }}>
                     <div className='centereee'>
                         <div style={{fontSize: '30px', marginLeft: '20px'}}>Login to iNoteBook</div>
                         <div style={{ display: "flex", flexDirection: "column", margin: "5px" }}>

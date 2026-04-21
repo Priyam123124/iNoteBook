@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import notesContext from '../Context/notes/notesContext';
 
@@ -10,6 +10,15 @@ const SignUp = () => {
   const onChange = (e) => {
     setBady({ ...bady, [e.target.name]: e.target.value });
   }
+
+  const [width, setWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => setWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const createaccount = async () => {
     const response = await fetch("https://i-note-book-lyart.vercel.app/api/auth/createuser", {
@@ -49,25 +58,25 @@ const SignUp = () => {
 
   return (
     <>
-      <div style={{ display: 'flex', flexDirection: 'row' }}>
-        <div className='leftContainer'>
-          <img src='logo.png' style={{width: '80%'}} alt='iNoteBook'/>
-        </div>
-        <div style={{width: '50%', justifyContent: 'center', display: 'flex'}}>
-        <div className='centereee'>
-          <div style={{fontSize: '30px', marginLeft: '20px'}}>Sign Up to iNoteBook</div>
-          <div style={{ display: "flex", flexDirection: "column", margin: "5px" }}>
-            <div className='font69'>Name</div>
-            <input type='text' placeholder='Name' name="name" value={bady.name} onChange={onChange} className='txtar mar' />
-            <div className='font69'>Email</div>
-            <input type='text' placeholder='Email' name="email" value={bady.email} onChange={onChange} className='txtar mar' />
-            <div className='font69'>Password</div>
-            <input type='password' placeholder='Password' name="password" value={bady.password} onChange={onChange} className='txtar mar' minLength={5} required />
-            <input type='button' value='Sign Up' onClick={handleclick} className='button mar' />
+      <div style={{ display: 'flex', flexDirection: width > 600 ?'row': 'column' }}>
+        {width > 600 && <div className='leftContainer'>
+          <img src='logo.png' style={{ width: '80%' }} alt='iNoteBook' />
+        </div>}
+        <div style={{ width: width > 600 ?'50%': '100%', justifyContent: 'center', display: 'flex' }}>
+          <div className='centereee'>
+            <div style={{ fontSize: '30px', marginLeft: '20px' }}>Sign Up to iNoteBook</div>
+            <div style={{ display: "flex", flexDirection: "column", margin: "5px" }}>
+              <div className='font69'>Name</div>
+              <input type='text' placeholder='Name' name="name" value={bady.name} onChange={onChange} className='txtar mar' />
+              <div className='font69'>Email</div>
+              <input type='text' placeholder='Email' name="email" value={bady.email} onChange={onChange} className='txtar mar' />
+              <div className='font69'>Password</div>
+              <input type='password' placeholder='Password' name="password" value={bady.password} onChange={onChange} className='txtar mar' minLength={5} required />
+              <input type='button' value='Sign Up' onClick={handleclick} className='button mar' />
+            </div>
           </div>
         </div>
-        </div>
-        </div>
+      </div>
     </>
   )
 }
