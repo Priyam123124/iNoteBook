@@ -55,14 +55,10 @@ router.post('/createuser', [
     res.status(500).send("Internal server error")
   }
 
-
-
-
   //   .then(user => res.json(user))
   //   .catch(err=> {console.log(err)
   // res.json({error: "please enter a unique value for email"})});
-
-  // neeche wala isse pahle ke video ka content hai. jab express validator use nhi hua tha
+  //n
   // console.log(req.body);
   // const user = User(req.body)
   // user.save();
